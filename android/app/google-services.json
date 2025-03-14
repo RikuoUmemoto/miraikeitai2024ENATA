@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "54661287046",
+    "project_id": "enata-7f35e",
+    "storage_bucket": "enata-7f35e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54661287046:android:9eb1f405450ab581c31507",
+        "android_client_info": {
+          "package_name": "com.mirai.enata"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH0fdlKdNLd3B8_rNG8L1Wgu68W3uo2Mg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

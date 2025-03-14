@@ -1,0 +1,73 @@
+plugins {
+    id "com.android.application"
+    // START: FlutterFire Configuration
+    id 'com.google.gms.google-services'
+    // END: FlutterFire Configuration
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.mirai.enata"
+    //compileSdk = flutter.compileSdkVersion
+    
+    // 通知機能の実装のため、バージョンを明記（flutter_local_notifications）
+    compileSdk 34 
+
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        // 通知機能の設定（flutter_local_notifications）
+        // Java 8の機能（特に新しいAPI）を古いAndroidデバイスでも使用可能にする
+        coreLibraryDesugaringEnabled true 
+
+        // アプリがJava 8で書かれたコードと互換性を持つようにする
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId = "com.mirai.enata"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        
+        // authentication を利用するにはminSDKのバージョンは23以上が必要のため、23に明記
+        minSdk = 23//minSdk = flutter.minSdkVersionから変更
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+
+        // 通知機能の設定（flutter_local_notifications）
+        // Android アプリのメソッド数制限を超える場合に必要。（DEXファイルを複数扱えるようになる）
+        multiDexEnabled true 
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+
+dependencies {
+    // 通知機能の設定（flutter_local_notifications）
+    // Java 8のAPIを古いAndroidデバイスで使えるようにするためのライブラリ
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
+    // 複数のウィンドウ管理をサポート
+    implementation "androidx.window:window:1.0.0"
+    // ウィンドウ管理の機能を利用できるようにする
+    implementation 'androidx.window:window-java:1.0.0'
+}
