@@ -1,7 +1,7 @@
 ## miraikeitai2024ENATA
 本リポジトリは、ミライケータイプロジェクトで開発したFlutterアプリケーション「ENATA」のソースコードです。
 
-##概要
+## 概要
 2024ミライケータイのアプリ開発にて主にバックエンドを担当しました。
 FirebaseのFirestoreを利用してデータベースとの連携を実装しています。
 Firebase Authenticationを利用してアカウントを管理しています。
